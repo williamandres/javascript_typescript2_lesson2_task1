@@ -30,5 +30,16 @@ class Alumno {
 
 
 // 1.Devuelva una arreglo que contenga todos los estudiantes cuyo promedio es mayor a 6 puntos.
+
+/*
 const mayor6 = alumnos.filter(alumnos => alumnos.promedio > 6)
 console.log(mayor6)
+*/
+
+//-------------------------------------------------------------------------------------------------
+
+
+//2.  Devuelva una lista de los estudiantes cuyo promedio es menor a 6 puntos y la edad es mayor a 19 años.
+
+const menor6 = alumnos.filter(alumnos => alumnos.promedio < 6 && alumnos.edad > 19)
+console.log(menor6)
