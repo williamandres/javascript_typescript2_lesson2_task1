@@ -27,5 +27,28 @@ const mayor6 = alumnos.filter(alumnos => alumnos.promedio > 6)
 console.log(mayor6)
 */
 //-------------------------------------------------------------------------------------------------
-//2.  Devuelva una lisita de los estudiantes cuyo promedio es menor a 6 puntos y la edad es mayor a 19 años.
-var menor6 = alumnos.filter(function (alumnos) { return alumnos.promedio < 6 && alumnos.edad > 19; });
+//2.  Devuelva una lista de los estudiantes cuyo promedio es menor a 6 puntos y la edad es mayor a 19 años.
+/*
+const menor6 = alumnos.filter(alumnos => alumnos.promedio < 6 && alumnos.edad > 19);
+console.log(menor6)
+
+*/
+//-----------------------------------------------------------------------------------------------------
+//3. Devuelva un arreglo ordenado segun el promedio de forma ascendente.
+var promedio = alumnos.map(function (_a) {
+    var promedio = _a.promedio;
+    return promedio;
+});
+var orden = promedio.sort(function (prev, next) {
+    // if(prev>next)
+    // {
+    //   return 1
+    // }
+    // if(prev<next)
+    // {
+    //   return -1
+    // }
+    // return 0
+    return prev - next;
+});
+console.log(orden);
