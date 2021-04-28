@@ -53,6 +53,7 @@ console.log(menor6)
 
 //3. Devuelva un arreglo ordenado segun el promedio de forma ascendente.
 
+/*
 const promedio = alumnos.map( ({promedio}) => promedio);
 const orden = promedio.sort(function(prev:number, next:number):number
 {
@@ -69,3 +70,26 @@ const orden = promedio.sort(function(prev:number, next:number):number
 });
 
 console.log(orden)
+*/
+
+//----------------------------------------------------------------------------------------------------
+
+
+
+//4. El profesor decidio otorgar 2 puntos a todos los estudiantes cuya nota es menor o igual a 4, 
+// devuelva un arreglo que cumpla con esta condición
+
+/*
+const menor4 = alumnos.map(alumno => {
+  if(alumno.promedio > 4) return alumno;
+
+  return{
+    ...alumno,
+    promedio: alumno.promedio + 2
+  }
+   
+});
+
+console.log(menor4)
+
+*/

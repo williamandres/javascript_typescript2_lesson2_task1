@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var Alumno = /** @class */ (function () {
     function Alumno(nombre, edad, correo, promedio) {
         this.nombre = nombre;
@@ -35,20 +46,30 @@ console.log(menor6)
 */
 //-----------------------------------------------------------------------------------------------------
 //3. Devuelva un arreglo ordenado segun el promedio de forma ascendente.
-var promedio = alumnos.map(function (_a) {
-    var promedio = _a.promedio;
-    return promedio;
+/*
+const promedio = alumnos.map( ({promedio}) => promedio);
+const orden = promedio.sort(function(prev:number, next:number):number
+{
+  // if(prev>next)
+  // {
+  //   return 1
+  // }
+  // if(prev<next)
+  // {
+  //   return -1
+  // }
+  // return 0
+  return prev - next
 });
-var orden = promedio.sort(function (prev, next) {
-    // if(prev>next)
-    // {
-    //   return 1
-    // }
-    // if(prev<next)
-    // {
-    //   return -1
-    // }
-    // return 0
-    return prev - next;
+
+console.log(orden)
+*/
+//----------------------------------------------------------------------------------------------------
+//4. El profesor decidio otorgar 2 puntos a todos los estudiantes cuya nota es menor o igual a 4, 
+// devuelva un arreglo que cumpla con esta condición
+var menor4 = alumnos.map(function (alumno) {
+    if (alumno.promedio > 4)
+        return alumno;
+    return __assign(__assign({}, alumno), { promedio: alumno.promedio + 2 });
 });
-console.log(orden);
+console.log(menor4);
