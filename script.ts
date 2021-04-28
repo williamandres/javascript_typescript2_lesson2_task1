@@ -28,3 +28,7 @@ class Alumno {
     { nombre: "Daniela Medina", edad: 20, correo: "danielamedinaC@gmail.com", promedio: 7 }
 ]
 
+
+// 1.Devuelva una arreglo que contenga todos los estudiantes cuyo promedio es mayor a 6 puntos.
+const mayor6 = alumnos.filter(alumnos => alumnos.promedio > 6)
+console.log(mayor6)
