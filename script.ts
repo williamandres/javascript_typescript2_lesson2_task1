@@ -31,21 +31,21 @@ class Alumno {
 
 // 1.Devuelva una arreglo que contenga todos los estudiantes cuyo promedio es mayor a 6 puntos.
 
-/*
+
 const mayor6 = alumnos.filter(alumnos => alumnos.promedio > 6)
 console.log(mayor6)
-*/
+
 
 //-------------------------------------------------------------------------------------------------
 
 
 //2.  Devuelva una lista de los estudiantes cuyo promedio es menor a 6 puntos y la edad es mayor a 19 años.
 
-/*
+
 const menor6 = alumnos.filter(alumnos => alumnos.promedio < 6 && alumnos.edad > 19);
 console.log(menor6)
 
-*/
+
 
 //-----------------------------------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ console.log(menor6)
 
 //3. Devuelva un arreglo ordenado segun el promedio de forma ascendente.
 
-/*
+
 const promedio = alumnos.map( ({promedio}) => promedio);
 const orden = promedio.sort(function(prev:number, next:number):number
 {
@@ -70,7 +70,7 @@ const orden = promedio.sort(function(prev:number, next:number):number
 });
 
 console.log(orden)
-*/
+
 
 //----------------------------------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ console.log(orden)
 //4. El profesor decidio otorgar 2 puntos a todos los estudiantes cuya nota es menor o igual a 4, 
 // devuelva un arreglo que cumpla con esta condición
 
-/*
+
 const menor4 = alumnos.map(alumno => {
   if(alumno.promedio > 4) return alumno;
 
@@ -92,7 +92,8 @@ const menor4 = alumnos.map(alumno => {
 
 console.log(menor4)
 
-*/
+
+
 
 //----------------------------------------------------------------------------------------------------
 
