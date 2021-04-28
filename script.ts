@@ -93,3 +93,26 @@ const menor4 = alumnos.map(alumno => {
 console.log(menor4)
 
 */
+
+//----------------------------------------------------------------------------------------------------
+
+
+
+
+//5. Devuelva el promedio general de todos los alumnos 
+
+const suma = (n) => {
+  let acumulado = 0;
+  
+  for(let i = 0; i < n.length; i++)
+  {
+    acumulado += n[i]
+  }
+
+  return acumulado
+}
+
+const arraypromedio = alumnos.map( ({promedio}) => promedio)
+const resultado = suma(arraypromedio)
+const promedioTotal =  resultado/arraypromedio.length
+console.log(promedioTotal.toFixed(2))
