@@ -59,19 +59,18 @@ function promedioBajo(alumnos:Alumno[]):Alumno[]{
 
 //3. Devuelva un arreglo ordenado segun el promedio de forma ascendente.
 
-function promedioTotal(alumnos:Alumno[]):number[]{
-  return alumnos.map(alumnos => alumnos.promedio);
-};
 
-function promedioOrdenado(promedioTotal:number[]):number[]{
-  return promedioTotal.sort(function(prev:number,next:number):number {
-    return prev - next;
-  })
+
+
+function promedioOrdenado(alumnos:Alumno[]):Alumno[]{
+  let alumnosCopy = [...alumnos]
+  return alumnosCopy.sort(function(promedio1,promedio2):number {
+    return promedio1.promedio - promedio2.promedio;
+  });
 };
 
 console.log(`Third Exercise`)
-console.log(promedioOrdenado(promedioTotal(alumnos)));
-
+console.log(promedioOrdenado(alumnos))
 
 
 //----------------------------------------------------------------------------------------------------
@@ -83,13 +82,19 @@ console.log(promedioOrdenado(promedioTotal(alumnos)));
 
 
 
-function promedioDeficiente(alumnos:Alumno[]):number[]{
-  return alumnos.filter(alumnos => alumnos.promedio < 4 ).map(alumnos=> alumnos.promedio +2);
-}
 
-console.log(`Exercise Fourth`);
-console.log(promedioDeficiente(alumnos));
+function menor4(alumnos:Alumno[]){
+   return alumnos.map(alumno => {
+    return{
+      ...alumno,
+      
+      promedio: alumno.promedio < 4 ? alumno.promedio + 2: alumno.promedio
+    }
+   
+})}
 
+console.log(`Fourth`)
+console.log(menor4(alumnos))
 
 //----------------------------------------------------------------------------------------------------
 
