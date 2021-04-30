@@ -1,14 +1,3 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var Alumno = /** @class */ (function () {
     function Alumno(nombre, edad, correo, promedio) {
         this.nombre = nombre;
@@ -33,53 +22,107 @@ var alumnos = [
     { nombre: "Daniela Medina", edad: 20, correo: "danielamedinaC@gmail.com", promedio: 7 }
 ];
 // 1.Devuelva una arreglo que contenga todos los estudiantes cuyo promedio es mayor a 6 puntos.
-var mayor6 = alumnos.filter(function (alumnos) { return alumnos.promedio > 6; });
-console.log(mayor6);
+/*
+//version anterior
+const mayor6 = alumnos.filter(alumnos => alumnos.promedio > 6)
+console.log(mayor6)
+*/
+function promedioAlto(alumnos) {
+    return alumnos.filter(function (alumnos) { return alumnos.promedio > 6; });
+}
+;
+console.log("First Exercise");
+console.log(promedioAlto(alumnos));
 //-------------------------------------------------------------------------------------------------
 //2.  Devuelva una lista de los estudiantes cuyo promedio es menor a 6 puntos y la edad es mayor a 19 años.
-var menor6 = alumnos.filter(function (alumnos) { return alumnos.promedio < 6 && alumnos.edad > 19; });
-console.log(menor6);
+/*
+//versión anterior
+const menor6 = alumnos.filter(alumnos => alumnos.promedio < 6 && alumnos.edad > 19);
+console.log(menor6)
+*/
+function promedioBajo(alumnos) {
+    return alumnos.filter(function (alumnos) { return alumnos.promedio < 6 && alumnos.edad > 19; });
+}
+console.log("Second Exercise");
+console.log(promedioBajo(alumnos));
 //-----------------------------------------------------------------------------------------------------
 //3. Devuelva un arreglo ordenado segun el promedio de forma ascendente.
-var promedio = alumnos.map(function (_a) {
-    var promedio = _a.promedio;
-    return promedio;
+/*
+const promedio:  = alumnos.map( ({promedio}) => promedio);
+const orden = promedio.sort(function(prev:number, next:number):number
+
+{
+  // if(prev>next)
+  // {
+  //   return 1
+  // }
+  // if(prev<next)
+  // {
+  //   return -1
+  // }
+  // return 0
+  return prev - next
 });
-var orden = promedio.sort(function (prev, next) {
-    // if(prev>next)
-    // {
-    //   return 1
-    // }
-    // if(prev<next)
-    // {
-    //   return -1
-    // }
-    // return 0
-    return prev - next;
-});
-console.log(orden);
+
+console.log(orden)
+*/
 //----------------------------------------------------------------------------------------------------
+function promedioTotal(alumnos) {
+    return alumnos.map(function (alumnos) { return alumnos.promedio; });
+}
+;
+function promedioOrdenado(promedioTotal) {
+    return promedioTotal.sort(function (prev, next) {
+        return prev - next;
+    });
+}
+;
+console.log("Third Exercise");
+console.log(promedioOrdenado(promedioTotal(alumnos)));
 //4. El profesor decidio otorgar 2 puntos a todos los estudiantes cuya nota es menor o igual a 4, 
 // devuelva un arreglo que cumpla con esta condición
-var menor4 = alumnos.map(function (alumno) {
-    if (alumno.promedio > 4)
-        return alumno;
-    return __assign(__assign({}, alumno), { promedio: alumno.promedio + 2 });
+/*
+const menor4 = alumnos.map(alumno => {
+if(alumno.promedio > 4) return alumno;
+
+return{
+  ...alumno,
+  promedio: alumno.promedio + 2
+}
+ 
 });
-console.log(menor4);
+
+console.log(menor4)
+*/
+function promedioDeficiente(alumnos) {
+    return alumnos.filter(function (alumnos) { return alumnos.promedio < 4; }).map(function (alumnos) { return alumnos.promedio + 2; });
+}
+console.log("Exercise Fourth");
+console.log(promedioDeficiente(alumnos));
 //----------------------------------------------------------------------------------------------------
 //5. Devuelva el promedio general de todos los alumnos 
-var suma = function (n) {
-    var acumulado = 0;
-    for (var i = 0; i < n.length; i++) {
-        acumulado += n[i];
-    }
-    return acumulado;
-};
-var arraypromedio = alumnos.map(function (_a) {
-    var promedio = _a.promedio;
-    return promedio;
-});
-var resultado = suma(arraypromedio);
-var promedioTotal = resultado / arraypromedio.length;
-console.log(promedioTotal.toFixed(2));
+/*
+const suma = (n) => {
+  let acumulado = 0;
+  
+  for(let i = 0; i < n.length; i++)
+  {
+    acumulado += n[i]
+  }
+
+  return acumulado
+}
+
+const arraypromedio = alumnos.map( ({promedio}) => promedio)
+const resultado = suma(arraypromedio)
+const promedioTotal =  resultado/arraypromedio.length
+console.log(promedioTotal.toFixed(2))
+*/
+function sumaPromedios(alumnos) {
+    return alumnos.reduce(function (acc, item) {
+        return acc += item.promedio;
+    }, 0);
+}
+var promedioGeneral = sumaPromedios(alumnos) / alumnos.length;
+console.log("fifth exercise");
+console.log(promedioGeneral.toFixed(2));
